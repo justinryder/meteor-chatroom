@@ -1,0 +1,32 @@
+<head>
+  <title>chatroom</title>
+</head>
+
+<body>
+  <header>
+    <h1>Meteor Chatroom</h1>
+    {{> loginButtons}}
+  </header>
+
+  {{#if currentUser}}
+    <ul>
+      {{#each messages}}
+        {{> message}}
+      {{/each}}
+    </ul>
+
+    <form class="messageBox">
+      <input type="text" name="text" placeholder="Say hello!" />
+    </form>
+  {{else}}
+    <p>Please sign in to join the chat.</p>
+  {{/if}}
+</body>
+
+<template name="message">
+  <li class="message">
+    <span class="userName">{{userName}}</span>
+    <span> says: </span>
+    <span class="text">{{text}}</span>
+  </li>
+</template>
